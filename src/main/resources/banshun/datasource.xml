@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       
+       xmlns:bs="http://www.griddynamics.com/schema/banshun"
+       xsi:schemaLocation="http://www.griddynamics.com/schema/banshun 
+         http://www.griddynamics.com/schema/banshun/banshun-schema.xsd">
+	
+	<import resource="classpath:/spring/datasource-config.xml"/>
+    
+    <bs:export ref="dataSource" interface="javax.sql.DataSource" />
+
+</beans>

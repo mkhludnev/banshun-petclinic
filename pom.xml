@@ -70,6 +70,12 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>com.griddynamics.banshun</groupId>
+			<artifactId>banshun-web</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+	
+		<dependency>
 			<groupId>org.jadira.usertype</groupId>
 			<artifactId>usertype.core</artifactId>
 			<version>${jadira-usertype-core.version}</version>
