@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:bs="http://www.griddynamics.com/schema/banshun"
+        xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:tx="http://www.springframework.org/schema/tx" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context.xsd
+         http://www.springframework.org/schema/jdbc
+         http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+         http://www.springframework.org/schema/jee
+         http://www.springframework.org/schema/jee/spring-jee.xsd
+         http://www.griddynamics.com/schema/banshun 
+         http://www.griddynamics.com/schema/banshun/banshun-schema.xsd
+         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+	<bs:export ref="clinicService" interface="org.springframework.samples.petclinic.service.ClinicService"/>
+	
+	<bs:import id="ownerRepository" interface="org.springframework.samples.petclinic.repository.OwnerRepository" />
+	<bs:import id="petRepository" interface="org.springframework.samples.petclinic.repository.PetRepository" />
+	<bs:import id="vetRepository" interface="org.springframework.samples.petclinic.repository.VetRepository" />
+	<bs:import id="visitRepository" interface="org.springframework.samples.petclinic.repository.VisitRepository" />
+	
+	       <context:component-scan
+            base-package="org.springframework.samples.petclinic.service"/>
+ 
+        <!-- Configurer that replaces ${...} placeholders with values from a properties file -->
+    <!-- (in this case, JDBC-related settings for the JPA EntityManager definition below) -->
+    <context:property-placeholder location="classpath:spring/data-access.properties" system-properties-mode="OVERRIDE"/>
+
+     <!-- enables scanning for @Transactional annotations -->
+    <tx:annotation-driven />
+ 
+</beans>

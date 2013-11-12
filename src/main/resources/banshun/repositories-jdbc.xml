@@ -5,6 +5,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:jdbc="http://www.springframework.org/schema/jdbc"
        xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
          http://www.springframework.org/schema/beans/spring-beans.xsd
          http://www.springframework.org/schema/context
@@ -14,9 +15,11 @@
          http://www.springframework.org/schema/jee
          http://www.springframework.org/schema/jee/spring-jee.xsd
          http://www.griddynamics.com/schema/banshun 
-         http://www.griddynamics.com/schema/banshun/banshun-schema.xsd">
+         http://www.griddynamics.com/schema/banshun/banshun-schema.xsd
+         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 	
-	<bs:import id="dataSource" interface="javax.sql.DataSource" />
+
+<bs:import id="dataSource" interface="javax.sql.DataSource" />
 	<bs:export ref="ownerRepository" interface="org.springframework.samples.petclinic.repository.OwnerRepository" />
 	<bs:export ref="petRepository" interface="org.springframework.samples.petclinic.repository.PetRepository" />
 	<bs:export ref="vetRepository" interface="org.springframework.samples.petclinic.repository.VetRepository" />
