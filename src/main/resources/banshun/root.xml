@@ -30,9 +30,10 @@
 
     <bean name="root" class="com.griddynamics.banshun.ContextParentBean">
         <property name="configLocations" value="
-                classpath:/banshun/datasource.xml" />
+                classpath:/banshun/datasource.xml,
+                classpath:/banshun/repositories-jdbc.xml" />
                 <!-- ,
-                classpath:/banshun/repositories-jdbc.xml,
+                ,
                 classpath:/banshun/business.xml,
          -->
         <property name="strictErrorHandling" value="true" />
