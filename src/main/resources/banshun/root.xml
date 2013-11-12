@@ -19,7 +19,8 @@
         <property name="configLocations" value="
                 classpath:/banshun/datasource.xml,
                 classpath:/banshun/repositories-jdbc.xml,
-                classpath:/banshun/business.xml" />
+                classpath:/banshun/business.xml,
+                classpath:/banshun/mvc.xml" />
                 
         <property name="strictErrorHandling" value="true" />
         <property name="childContextPrototype" value="childContextPrototype"/>
@@ -30,6 +31,8 @@
             <bean class="com.griddynamics.banshun.LookupTargetSourceCreator"/>
         </property>
     </bean>
-
-    <bs:import id="clinicService" interface="org.springframework.samples.petclinic.service.ClinicService"/>
+    
+     <bean id="root-handler-mapping" class="com.griddynamics.banshun.web.ScanChildrenHandlerMapping">
+        <property name="parentBean" ref="root"/>
+    </bean>
 </beans>
