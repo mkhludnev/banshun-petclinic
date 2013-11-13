@@ -31,10 +31,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:banshun/root.xml</param-value>
     </context-param>
-<!-- , classpath:spring/tools-config.xml -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
+    </listener> 
+<!-- , classpath:spring/tools-config.xml -->
 
     <!--
 - Servlet that dispatches request to registered handlers (Controller implementations).

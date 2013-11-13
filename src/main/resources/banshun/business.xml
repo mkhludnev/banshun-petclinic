@@ -19,20 +19,30 @@
          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 	
 	<bs:export ref="clinicService" interface="org.springframework.samples.petclinic.service.ClinicService"/>
-	
+
+     <alias alias="clinicService" name="clinicServiceImpl"/>	
+ 
 	<bs:import id="ownerRepository" interface="org.springframework.samples.petclinic.repository.OwnerRepository" />
 	<bs:import id="petRepository" interface="org.springframework.samples.petclinic.repository.PetRepository" />
 	<bs:import id="vetRepository" interface="org.springframework.samples.petclinic.repository.VetRepository" />
 	<bs:import id="visitRepository" interface="org.springframework.samples.petclinic.repository.VisitRepository" />
-	
+    <!-- is needed for tx manager. it might be good to move both of them into datasource.xml and import txmanager here -->
+	<bs:import id="dataSource" interface="javax.sql.DataSource" />
+ 
 	       <context:component-scan
             base-package="org.springframework.samples.petclinic.service"/>
  
         <!-- Configurer that replaces ${...} placeholders with values from a properties file -->
-    <!-- (in this case, JDBC-related settings for the JPA EntityManager definition below) -->
+    <!-- (in this case, JDBC-related settings for the JPA EntityManager definition below)
     <context:property-placeholder location="classpath:spring/data-access.properties" system-properties-mode="OVERRIDE"/>
-
+ -->
      <!-- enables scanning for @Transactional annotations -->
     <tx:annotation-driven />
+    
+             <!-- Transaction manager for a single JDBC DataSource (alternative to JTA) -->
+        <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+               p:dataSource-ref="dataSource"> 
+<!--    <property name="dataSource" ref="dataSource"></property> -->
+        </bean>
  
 </beans>

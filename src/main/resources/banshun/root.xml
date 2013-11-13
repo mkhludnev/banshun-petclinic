@@ -19,9 +19,7 @@
         <property name="configLocations" value="
                 classpath:/banshun/datasource.xml,
                 classpath:/banshun/repositories-jdbc.xml,
-                classpath:/banshun/business.xml,
-                classpath:/banshun/mvc.xml" />
-                
+                classpath:/banshun/business.xml" />               
         <property name="strictErrorHandling" value="true" />
         <property name="childContextPrototype" value="childContextPrototype"/>
     </bean>
@@ -32,7 +30,13 @@
         </property>
     </bean>
     
-     <bean id="root-handler-mapping" class="com.griddynamics.banshun.web.ScanChildrenHandlerMapping">
-        <property name="parentBean" ref="root"/>
-    </bean>
+    
+   <bean id="clinicServiceVoid"
+      factory-bean="root"
+      factory-method="voidLookup">
+     <constructor-arg value="clinicService"/>
+     <constructor-arg value="org.springframework.samples.petclinic.service.ClinicService"/>
+   </bean> 
+    
+    
 </beans>

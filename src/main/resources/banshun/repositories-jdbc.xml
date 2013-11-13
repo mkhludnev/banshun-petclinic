@@ -25,17 +25,11 @@
 	<bs:export ref="vetRepository" interface="org.springframework.samples.petclinic.repository.VetRepository" />
 	<bs:export ref="visitRepository" interface="org.springframework.samples.petclinic.repository.VisitRepository" />
 	
-	<alias alias="ownerRepository" name="jdbcOwnerRepository"/>
-	<alias alias="petRepository" name="jdbcPetRepository"/>
-	<alias alias="vetRepository" name="jdbcVetRepository"/>
-	<alias alias="visitRepository" name="jdbcVisitRepository"/>
+	<alias alias="ownerRepository" name="jdbcOwnerRepositoryImpl"/>
+	<alias alias="petRepository" name="jdbcPetRepositoryImpl"/>
+	<alias alias="vetRepository" name="jdbcVetRepositoryImpl"/>
+	<alias alias="visitRepository" name="jdbcVisitRepositoryImpl"/>
 	
-	        <!-- Transaction manager for a single JDBC DataSource (alternative to JTA) -->
-        <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
-               p:dataSource-ref="dataSource"> 
-<!-- 			<property name="dataSource" ref="dataSource"></property> -->
-        </bean>
-
         <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
             <constructor-arg ref="dataSource"/>
         </bean>
