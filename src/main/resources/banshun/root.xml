@@ -15,7 +15,7 @@
  
 	    <bean id="childContextPrototype" class="com.griddynamics.banshun.SingleResourceXmlChildContext" scope="prototype"/>
 
-    <bean name="root" class="com.griddynamics.banshun.ContextParentBean">
+    <bean name="root" class="com.griddynamics.banshun.StrictContextParentBean">
         <property name="configLocations" value="
                 classpath:/banshun/datasource.xml,
                 classpath:/banshun/repositories-jdbc.xml,

@@ -20,4 +20,17 @@
     <root level="info">
         <appender-ref ref="console"/>
     </root>
+    
+    <appender name="graph" class="ch.qos.logback.core.FileAppender" >
+      <file>dependencies.txt</file>
+      <append>false</append>
+      <encoder>
+        <pattern>%msg%n</pattern>
+       </encoder>
+    </appender>
+    
+    <logger name="spring.nested.dependencies.graph" level="debug">
+       <appender-ref ref="graph"/>
+    </logger>
+    
 </configuration>
